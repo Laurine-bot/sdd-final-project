@@ -1,0 +1,68 @@
+<div class="edit">
+  
+  <%= form_for(item) do |f| %>
+    <% if item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+  
+        <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :item_id, 'ID*' %>
+      <%= f.text_field :item_id %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :item_name, 'Name*' %>
+      <%= f.text_field :item_name %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :item_description, 'Description*' %>
+      <%= f.text_area :item_description, :id => "text" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :image_url, 'Image URL*' %>
+      <%= f.text_field :image_url %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :additional_image, 'Additional image' %>
+      <%= f.text_field :additional_image %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :additional_image2, 'Additional image 2' %>
+      <%= f.text_field :additional_image2 %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :price, 'Price*' %>
+      <%= f.text_field :price %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :quantity, 'Quantity*' %>
+      <%= f.text_field :quantity %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :cat_name, 'Category*' %>
+      <%= collection_select(:item, :cat_name, Category.all, :cat_name, :cat_name, {}, {:multiple => false}) %>
+    </div>
+    
+    <p style="color:red;">* Required fields</p>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    
+  <% end %>
+</div>

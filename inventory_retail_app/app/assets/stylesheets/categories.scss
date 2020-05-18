@@ -1,0 +1,32 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#catContainer{
+    text-align: center;
+    width: 100%;
+}
+
+.catCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.catIndCard{
+    width: 20%;
+    margin: 28px;
+    padding-bottom: 20px;
+    background-color: #dce0dd;
+}
+
+.catholsIm {
+    width: 50%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+}
+
+textarea#textbox{
+    height: 80px;
+}

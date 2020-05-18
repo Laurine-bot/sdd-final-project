@@ -1,0 +1,36 @@
+<table class="table1">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @items.each do |item| %>
+        <div class="itemhols">
+          <tr class="row"><p>
+            <td><%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %></td>
+            <td class="name"><%= item.item_name %></td>
+            <td><%= item.cat_name %></td>
+            <td><%= truncate(item.item_description, length: 160, separator: " ") { link_to "read more", item } %></td>
+            <td><%= number_to_currency(item.price, :unit => "€") %></td>
+            <td><%= item.quantity %></td>
+            <div class="button">
+              <td><%= link_to 'Show', item %></td>
+              <% if logged_in? %>
+              <td><%= link_to 'Edit', edit_item_path(item) %></td>
+              <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </div>
+            </p>
+          </tr>
+        </div>
+      <% end %>
+    </tbody>
+</table>

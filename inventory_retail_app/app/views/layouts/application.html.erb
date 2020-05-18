@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InventoryRetailApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body class="card">
+    
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", home_path %></li>
+          <li><%= link_to "Categories", categories_path %></li>
+          <li><%= link_to "Items", items_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Register", signup_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+      
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+      
+    </header>
+    
+    <%= yield %>
+    
+    <br/>
+    <% if logged_in? %>
+    <footer>
+      <nav>
+        <ul>
+          <li><%= link_to 'New Item', new_item_path %></li>
+          <li><%= link_to 'New Category', new_category_path %></li>
+        </ul>
+      </nav>
+    </footer>
+    <% end %>
+    
+  </body>
+
+</html>

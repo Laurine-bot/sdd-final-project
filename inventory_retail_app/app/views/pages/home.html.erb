@@ -1,0 +1,28 @@
+<div id="itemsContainer">
+
+<h1>Welcome!</h1></br>
+<h3>Welcome to NCI Board Game Inventory app!</h3>
+
+<p>Overview of what is currently in the inventory:</p>
+
+<table class="homeTable">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Categories</th>
+            <th>Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><p>
+            <th>Total</th>
+            <td><%= Category.count %></td>
+            <td><%= Item.count %></td></p>
+        </tr>
+    </tbody>
+</table>
+
+<p> Don't forget to login to manage (add/edit/delete) inventory! <br/> <%= link_to "login", login_path %> | <%= link_to "register", signup_path %> </p>
+<h3>Happy browsing!</h3>
+
+</div>

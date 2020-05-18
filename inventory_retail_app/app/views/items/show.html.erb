@@ -1,0 +1,52 @@
+<div class="show">
+
+  <h1>
+    <%= @item.item_name %>
+  </h1>
+  
+  <p>
+    <%= @item.item_description %>
+  </p>
+  
+  <p>
+    <strong>Category:</strong><br/>
+    <%= @item.cat_name %>
+  </p>
+  
+  <p>
+    <strong>Item ID:</strong><br/>
+    <%= @item.item_id %>
+  </p>
+  
+  <p>
+    <strong><%= number_to_currency(@item.price, :unit => "€") %></strong>
+  </p>
+  
+  <p>
+    <strong>Quantity:</strong><br/>
+    <%= @item.quantity %>
+  </p>
+  
+  <div>
+    <% if @item.additional_image? %>
+      <%= image_tag(@item.additional_image, :class => "img") %>
+      <% if @item.additional_image2? %>
+        <%= image_tag(@item.additional_image2, :class => "img") %>
+      <% end %>
+    <% end %>
+
+    <% if !@item.additional_image? && !@item.additional_image2?%>
+      <%= image_tag(@item.image_url, :class => "img") %>
+    <% end %>
+
+  </div>
+  
+  <br/>
+  <br/>
+  
+  <% if logged_in? %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <% end %>
+  <%= link_to 'Back', items_path %>
+
+</div>

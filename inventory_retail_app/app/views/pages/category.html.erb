@@ -1,0 +1,20 @@
+<div id="itemsContainer">
+    
+    <h1>Items in category:
+    <%= @catName %></h1>
+    
+    <h2> Number of items:
+    <%= @items.count %> </h2>
+    
+    <div class="itemsFiltered">
+    
+        <% if @items.length == 0  %>
+            <br/>
+            <h3>There are no items yet in this category</h3>
+        <% else %>
+            <%= render 'layouts/items'%>
+        <% end %>
+        
+    </div>
+    <br>
+</div>
